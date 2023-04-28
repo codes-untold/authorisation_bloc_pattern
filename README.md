@@ -5,6 +5,5 @@ A new Flutter project.
 ## INSTRUCTIONS
 For testing,
 
-Enter 0000 as pin to get a failed authorisation
-
-Enter any other value as pin to get a successful authorisation
+(1) Enter any 4 digit value to get successful authorisation
+(2) Enter '0000' to get failed authorisation
