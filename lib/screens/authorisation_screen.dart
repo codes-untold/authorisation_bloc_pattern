@@ -4,6 +4,7 @@ import 'package:roonyx/blocs/authorisation_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:roonyx/widgets/response_widgets.dart';
+import 'package:roonyx/widgets/textbox.dart';
 
 class AuthorizationScreen extends StatefulWidget {
   const AuthorizationScreen({super.key});
@@ -20,7 +21,6 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _bloc = Provider.of<AuthorisationCubit>(context, listen: false);
   }
@@ -54,44 +54,15 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                     ),
                     const Text(
                       'Enter your PIN',
-                      style: TextStyle(fontSize: 20, color: Color(0xff122242)),
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff122242)),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    Form(
-                      key: _key,
-                      child: TextFormField(
-                        controller: editingController,
-                        autofocus: true,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Field required';
-                          } else if (value!.length < 4) {
-                            return 'pin must be least 4 digits';
-                          } else {
-                            return null;
-                          }
-                        },
-                        onChanged: (value) {},
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.only(top: 10, left: 10),
-                          hintText: 'Enter your pin',
-                          hintStyle: const TextStyle(
-                              color: Color(0XFF414E68), fontSize: 13),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                              width: 0,
-                              color: Color(0XFF414E68),
-                              style: BorderStyle.solid,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    Form(key: _key, child: TextBox(editingController)),
                     if (state is AuthorisationSuccess) const SuccessWidget(),
                     if (state is AuthorisationFailed) const FailureWidget()
                   ],
