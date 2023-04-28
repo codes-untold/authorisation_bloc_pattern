@@ -3,14 +3,8 @@
 A new Flutter project.
 
 ## Getting Started
+For testing,
 
-This project is a starting point for a Flutter application.
+Enter 0000 as pin to get a failed authorisation
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Enter any other value to get a successful authorisation
