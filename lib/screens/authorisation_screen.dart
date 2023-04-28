@@ -15,14 +15,14 @@ class AuthorizationScreen extends StatefulWidget {
 
 class _AuthorizationScreenState extends State<AuthorizationScreen> {
   final TextEditingController editingController = TextEditingController();
-  late AuthorisationCubit _bloc;
+  late AuthorisationCubit _bloc = AuthorisationCubit();
   final _key = GlobalKey<FormState>();
   bool isScreenLoading = false;
 
   @override
   void initState() {
     super.initState();
-    _bloc = Provider.of<AuthorisationCubit>(context, listen: false);
+    _bloc = BlocProvider.of<AuthorisationCubit>(context, listen: false);
   }
 
   @override

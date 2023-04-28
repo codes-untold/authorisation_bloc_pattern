@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roonyx/blocs/authorisation_cubit.dart';
 import 'package:roonyx/screens/authorisation_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SetUp extends StatelessWidget {
   const SetUp({super.key});
@@ -9,9 +9,9 @@ class SetUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MultiProvider(providers: [
-        Provider<AuthorisationCubit>.value(value: AuthorisationCubit()),
-      ], child: const AuthorizationScreen()),
+      home: BlocProvider(
+          create: (_) => AuthorisationCubit(),
+          child: const AuthorizationScreen()),
     );
   }
 }
